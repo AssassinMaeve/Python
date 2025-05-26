@@ -1,16 +1,23 @@
-numbers = [5, 2, 9, 1, 7]
+import numpy as np
 
-if numbers:
-    max_num = numbers[0]
-    min_num = numbers[0]
+# Step 1: Create a NumPy array of random integers between 1 and 100
+data = np.random.randint(1, 101, size=15)
+print("Original Array:")
+print(data)
 
-    for num in numbers[1:]:
-        if num > max_num:
-            max_num = num
-        if num < min_num:
-            min_num = num
+# Step 2: Fancy Indexing - Extract elements at specific positions
+positions = [0, 3, 5, 7, 10]
+fancy_selected = data[positions]
+print("\nElements at positions", positions, ":")
+print(fancy_selected)
 
-    print("Maximum:", max_num)
-    print("Minimum:", min_num)
-else:
-    print("List is empty.")
+# Step 3: Masking - Find and display all elements greater than 50
+mask = data > 50
+print("\nElements greater than 50:")
+print(data[mask])
+
+# Step 4: Masking - Replace all odd numbers with -1
+odd_mask = data % 2 == 1
+data[odd_mask] = -1
+print("\nArray after replacing odd numbers with -1:")
+print(data)
